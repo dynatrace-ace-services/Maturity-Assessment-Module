@@ -42,11 +42,11 @@ Dynatrace Account: SAAS/Managed tenant URL with API path.
 3. Verify API Connectivity:
 	Run a test script or command to verify API connectivity. For example:
 	curl -kv https://api-url
-4. Locate the template files "MaturityScript_automation_template.xlsx" and "Updated_MaturityScript_automation_template.xlsx" from the sharepoint link -  [MaturityScript_automation_template - v2.xlsx](https://dynatrace-my.sharepoint.com/:x:/p/nicolas_vailliet/EdxCK9e_rA1MnHT6Oxs6ICEBu6oQ477SqbBlhWZI4crsGw?e=aeqrYd)
+4. Locate the template files "MaturityScript_automation_template.xlsx" from the sharepoint link -  [MaturityScript_automation_template.xlsx](https://dynatrace-my.sharepoint.com/:x:/p/nicolas_vailliet/EdxCK9e_rA1MnHT6Oxs6ICEBu6oQ477SqbBlhWZI4crsGw?e=aeqrYd)
 5. Place the above template files inside the dir where the maturityScript.py is present.
 	MaturityScript_automation_template.xlsx - Input template file
-	Updated_MaturityScript_automation_template.xlsx - Output template file
-6. Execute Maturity Assessment Script:
+6. Edit the config.json file to include tenant address, token and account UUID.
+7. Execute Maturity Assessment Script:
 	Run the maturity assessment script using the following command:
 	python maturityScript.py
 
@@ -56,7 +56,7 @@ Output:
 The log file output.log records the code flow and captures required information and errors.
 
 Report:
-The file "Updated_MaturityScript_automation_template.xlsx" contains resultant values which can then be used as a data source in PowerBI to get the desired visualization/report.
+The Summary sheet in "MaturityScript_automation_templatexlsx" contains resultant values visualized in charts and this can then be used as a data source in PowerBI to get the desired visualization/report.
 
 ## API Token Generation
 Follow the steps as mentioned in the link below to create/generate tokens:
