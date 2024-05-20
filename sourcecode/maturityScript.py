@@ -27,7 +27,7 @@ class Automation():
         for index, rows in self.df.iterrows():
             self.observability_data(index, rows)
         #print(self.df)
-        Excel_Exporter(self.file, self.df, self.sheet)
+        Excel_Exporter(self.file, self.df, "Sample")
         self.logger.info("The main code has completed its execution !!")
 
     @exception_catcher
@@ -95,23 +95,24 @@ class Automation():
 
     def observability_data(self, index, rows):
         if True:
-            #self.df.at[index, 'Result totalCount'] = self.make_get_calls(self.df["API Call"].values[index])
+            #self.df.at[index, 'Total Count'] = self.make_get_calls(self.df["API Call"].values[index])
             api_output = self.make_get_calls(self.df["API Call"].values[index])
             key_list = [ "hosts", "items", "problems", "values", "metrics", "monitors", "attacks", "releases", "events", "results" ]
             if type(api_output) is dict:
                 for a,b in enumerate(key_list):
-                    if  == key_list
+                    data_key=b if b in api_output else ''
                 temp = []
                 temp = api_output[data_key]
                 self.logger.info("The primary length of data is {}".format(len(temp)))
                 if self.next_page != "":
                     out_list = self.recurser(self.df["API Call"].values[index], temp, data_key)
-                    self.df.at[index, 'Result totalCount'] = len(out_list)
+                    #out_list = self.recurser(self.df["API Call"].values[index], temp)
+                    self.df.at[index, 'Total Count'] = len(out_list)
                 else:
-                    self.df.at[index, 'Result totalCount'] = len(temp)
+                    self.df.at[index, 'Total Count'] = len(temp)
             else:
                 #self.logger.info("The other kind of output is {}".format(api_output))
-                self.df.at[index, 'Result totalCount'] = len(api_output)
+                self.df.at[index, 'Total Count'] = len(api_output)
 
 
 
