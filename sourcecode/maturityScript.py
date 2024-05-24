@@ -52,7 +52,7 @@ class Automation():
                 self.logger.debug("The API response is {}".format(get_response.json()))
                 # return False if the received json is empty else mark the cell as True
                 if get_response.json() == []:
-                    return False 
+                    return "Empty"
                 else:
                     outcome = get_response.json()
                     if 'nextPageKey' in outcome and outcome['nextPageKey'] is not None:
@@ -100,7 +100,8 @@ class Automation():
             key_list = [ "hosts", "items", "problems", "values", "metrics", "monitors", "attacks", "releases", "events", "results" ]
             if type(api_output) is dict:
                 for a,b in enumerate(key_list):
-                    data_key=b if b in api_output else ''
+                    if b in api_output:
+                        data_key = b
                 temp = []
                 temp = api_output[data_key]
                 self.logger.info("The primary length of data is {}".format(len(temp)))
@@ -111,8 +112,9 @@ class Automation():
                 else:
                     self.df.at[index, 'Total Count'] = len(temp)
             else:
-                #self.logger.info("The other kind of output is {}".format(api_output))
-                self.df.at[index, 'Total Count'] = len(api_output)
+                self.logger.info("The API {} returned a reponse {}".format(self.df["API Call"].values[index], api_output))
+                #self.df.at[index, 'Total Count'] = len(api_output)
+                self.df.at[index, 'Total Count'] = 0
 
 
 
