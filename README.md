@@ -42,7 +42,7 @@ Dynatrace Account: SAAS/Managed tenant URL with API path.
 3. Verify API Connectivity:
 	Run a test script or command to verify API connectivity. For example:
 	curl -kv https://api-url
-4. Locate the template files "MaturityScript_automation_template.xlsx" from the sharepoint link -  [MaturityScript_automation_template.xlsx](https://dynatrace-my.sharepoint.com/:x:/p/nicolas_vailliet/EdxCK9e_rA1MnHT6Oxs6ICEBu6oQ477SqbBlhWZI4crsGw?e=aeqrYd)
+4. Locate the template files "MaturityScript_automation_template.xlsx" from the sharepoint link -  [MaturityScript_automation_template.xlsx](https://dynatrace-my.sharepoint.com/:x:/p/shibin_nv/EZSALxJbSEFLsWfdacX2GR0B0zN0RH-reI1Ww80KyWHDvQ?e=dnc7P4)
 5. Place the above template files inside the dir where the maturityScript.py is present.
 	MaturityScript_automation_template.xlsx - Input template file
 6. Edit the config.json file to include tenant address, token and account UUID.
